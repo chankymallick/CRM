@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>com.crmapp</groupId>
 	<artifactId>crmapp</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>beta</version>
 	<name>crmapp</name>
-	<description>Demo project for Spring Boot</description>
+	<description>CRM API</description>
 
 	<properties>
 		<java.version>1.8</java.version>
