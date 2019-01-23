@@ -1,41 +1,43 @@
--- ****************** SqlDBM: Microsoft SQL Server ******************
--- ******************************************************************
+USE [CRM_DB2]
+GO
 
--- ************************************** [dbo].[USERS]
+/****** Object:  Table [dbo].[CRM_USERS]    Script Date: 23-01-2019 23:21:18 ******/
+SET ANSI_NULLS ON
+GO
 
-CREATE TABLE [dbo].[USERS]
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[CRM_USERS](
+	[USER_UID] [int] NOT NULL,
+	[ACTIVE] [bit] NOT NULL,
+	[CREATED_BY] [int] NOT NULL,
+	[CREATED_DATE] [datetime2](7) NOT NULL,
+	[DESCRIPTION] [varchar](1000) NULL,
+	[EMAIL] [varchar](50) NOT NULL,
+	[IMAGE_UID] [int] NULL,
+	[MOBILE_NO] [bigint] NOT NULL,
+	[MOBILE_PREFIX] [int] NOT NULL,
+	[MODIFIED_BY] [int] NOT NULL,
+	[MODIFIED_DATE] [datetime2](7) NOT NULL,
+	[NAME] [varchar](50) NOT NULL,
+	[PASSWORD] [varchar](20) NOT NULL,
+	[USER_ROLE] [varchar](255) NOT NULL,
+PRIMARY KEY CLUSTERED 
 (
- [USER_UID]        int IDENTITY (1, 1) NOT NULL ,
- [EMAIL]           varchar(50) NOT NULL ,
- [NAME]            varchar(50) NOT NULL ,
- [MOBILE_PREFIX]   varchar(5) NOT NULL ,
- [MOBILE_NO]       int NOT NULL ,
- [PASSWORD]        nvarchar(20) NOT NULL ,
- [USER_ROLE]       varchar(15) NOT NULL ,
- [ACTIVE]          bit NOT NULL ,
- [PROFILE_PICTURE] int NOT NULL ,
- [IMAGE_UID]       int NOT NULL ,
- [CREATED_BY]      int NOT NULL ,
- [CREATED_DATE]    datetime NOT NULL ,
- [MODIFIED_BY]     int NOT NULL ,
- [MODIFIED_DATE]   datetime NOT NULL ,
-
- CONSTRAINT [PK_USERS] PRIMARY KEY CLUSTERED ([USER_UID] ASC),
- CONSTRAINT [FK_28] FOREIGN KEY ([IMAGE_UID])  REFERENCES [IMAGE_STORE]([IMAGE_UID])
-);
-GO
-
-
-CREATE NONCLUSTERED INDEX [fkIdx_28] ON [dbo].[USERS] 
- (
-  [IMAGE_UID] ASC
- )
+	[USER_UID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [UK_7t18od6hobk91ebbu8y0j42gw] UNIQUE NONCLUSTERED 
+(
+	[EMAIL] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 
 GO
 
-
-
-
-
-
+SET ANSI_PADDING OFF
+GO
 

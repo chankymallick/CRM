@@ -19,6 +19,10 @@ public class UserRepoImpl {
 		userRepository.findAll().forEach(users::add);
 		return users;	
 	}
+	
+	public User addUser(User user){
+	 return	userRepository.save(user);		
+	}
 
 
 }
