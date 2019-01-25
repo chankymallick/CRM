@@ -65,6 +65,14 @@ public class User {
 	@Column(name="MODIFIED_DATE",nullable = false)
 	private Date modifiedDate;
 	
+	
+	
+	
+	
+	
+	
+	
+	
 	public int getUserUid() {
 		return userUid;
 	}
