@@ -12,7 +12,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-@Entity(name="LEADS")
+@Entity(name="LEAD")
 public class Lead {
 	
 	public Lead(){

@@ -13,7 +13,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.crmapp.apis.ApiVersionOne;
 import com.crmapp.repositories.LeadRepository;
+import com.crmapp.repositoriesimpl.CallLogRepoImpl;
+import com.crmapp.repositoriesimpl.ContactRepoImpl;
 import com.crmapp.repositoriesimpl.CustomerRepoImpl;
+import com.crmapp.repositoriesimpl.DealRepoImpl;
 import com.crmapp.repositoriesimpl.LeadRepoImpl;
 import com.crmapp.repositoriesimpl.PermissionRepoImpl;
 import com.crmapp.repositoriesimpl.UserRepoImpl;
@@ -49,6 +52,22 @@ public class CrmappApplication {
 	@Bean
 	public LeadRepoImpl leadRepoImplementation(){
 		return new LeadRepoImpl();
+	}
+	
+	@Bean
+	public ContactRepoImpl contactRepoImplementation(){
+		return new ContactRepoImpl();
+	}
+	
+	
+	@Bean
+	public CallLogRepoImpl callLogRepoImplementation(){
+		return new CallLogRepoImpl();
+	}	
+	
+	@Bean
+	public DealRepoImpl dealLogRepoImplementation(){
+		return new DealRepoImpl();
 	}
 	
 
