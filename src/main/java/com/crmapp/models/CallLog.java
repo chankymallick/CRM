@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PostLoad;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -20,7 +21,7 @@ public class CallLog {
 	}
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="CALL_UID")
 	private int callUid;	
 	
@@ -54,10 +55,10 @@ public class CallLog {
 	@Column(name="CREATED_BY",nullable=false)
 	private int createdBy;
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	//@Temporal(TemporalType.TIMESTAMP)
 	@CreationTimestamp
 	@Column(name="CREATED_DATE",nullable = false)
-	private Date createdDate; 	
+	private java.sql.Timestamp createdDate; 	
 	
 	@Column(name="MODIFIED_BY",nullable=false)
 	private int modifiedBy;
@@ -157,11 +158,11 @@ public class CallLog {
 		this.createdBy = createdBy;
 	}
 
-	public Date getCreatedDate() {
+	public java.sql.Timestamp getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(Date createdDate) {
+	public void setCreatedDate(java.sql.Timestamp createdDate) {
 		this.createdDate = createdDate;
 	}
 
